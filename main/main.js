@@ -14,11 +14,17 @@ module.exports = function main(inputs) {
             } else{
                 total += subTotal;
                 receipt += 'Name: ' + inputs[x].Name + ', Quantity: ' + totalBottles + ', Unit price: ' + unitPrice + '.00 (yuan), Subtotal: '  + subTotal + ' (yuan)\n';
-                x = y;
+                x = y - 1;
+                break;
+            }
+            //for last sequence
+            if(y + 1 == inputs.length){
+                total += subTotal;
+                receipt += 'Name: ' + inputs[x].Name + ', Quantity: ' + totalBottles + ', Unit price: ' + unitPrice + '.00 (yuan), Subtotal: '  + subTotal + ' (yuan)\n';
+                x = y - 1;
                 break;
             }
         }
-        x -= 1;
         if(x + 1 == inputs.length){
             receipt += '----------------------\n';
             receipt += 'Total: ' + total + '.00 (yuan)\n';
